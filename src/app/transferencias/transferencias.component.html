@@ -1,0 +1,19 @@
+<section class="container">
+    <table class="titulo">
+        <thead class="tabela__cabecalho">
+            <th class="tabela__cabecalho__conteudo">Data</th>
+            <th class="tabela__cabecalho__conteudo">Valor</th>
+            <th class="tabela__cabecalho__conteudo">Agencia</th>
+        </thead>
+        <tbody *ngIf="!!transferencias; else listaVazia">
+            <tr *ngFor="let transferencia of transferencias">
+                <th class="tabela__cabecalho">{{transferencia.data | date: "short"}}</th>
+                <th class="tabela__cabecalho">{{transferencia.valor | currency}}</th>
+                <th class="tabela__cabecalho">{{transferencia.destino}}</th>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #listaVazia>
+        <p>Nenhuma transferencia realizada</p>
+    </ng-template>
+</section>
